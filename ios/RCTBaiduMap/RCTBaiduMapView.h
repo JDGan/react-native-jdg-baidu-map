@@ -13,8 +13,7 @@
 #import "RCTViewManager.h"
 #import "RCTConvert+CoreLocation.h"
 #import <BaiduMapAPI_Map/BMKMapView.h>
-#import <BaiduMapAPI_Map/BMKPinAnnotationView.h>
-#import <BaiduMapAPI_Map/BMKPointAnnotation.h>
+#import "JDGAnnotationView.h"
 #import <UIKit/UIKit.h>
 
 @interface RCTBaiduMapView : BMKMapView <BMKMapViewDelegate>

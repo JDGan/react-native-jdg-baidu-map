@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@interface JDGAnnotation : NSObject
+#import <BaiduMapAPI_Map/BMKPointAnnotation.h>
+@interface JDGAnnotation : BMKPointAnnotation
 
 @end

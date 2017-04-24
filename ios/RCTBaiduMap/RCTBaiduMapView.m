@@ -10,7 +10,7 @@
 
 @implementation RCTBaiduMapView {
     BMKMapView* _mapView;
-    BMKPointAnnotation* _annotation;
+    JDGAnnotation* _annotation;
     NSMutableArray* _annotations;
 }
 
@@ -29,7 +29,7 @@
     NSLog(@"setMarker");
     if(option != nil) {
         if(_annotation == nil) {
-            _annotation = [[BMKPointAnnotation alloc]init];
+            _annotation = [[JDGAnnotation alloc]init];
             [self addMarker:_annotation option:option];
         }
         else {
@@ -46,13 +46,13 @@
     if(markers != nil) {
         for (int i = 0; i < markersCount; i++)  {
             NSDictionary *option = [markers objectAtIndex:i];
-            
-            BMKPointAnnotation *annotation = nil;
+
+            JDGAnnotation *annotation = nil;
             if(i < [_annotations count]) {
                 annotation = [_annotations objectAtIndex:i];
             }
             if(annotation == nil) {
-                annotation = [[BMKPointAnnotation alloc]init];
+                annotation = [[JDGAnnotation alloc]init];
                 [self addMarker:annotation option:option];
                 [_annotations addObject:annotation];
             }
@@ -60,24 +60,24 @@
                 [self updateMarker:annotation option:option];
             }
         }
-        
+
         int _annotationsCount = [_annotations count];
-        
+
         NSString *smarkersCount = [NSString stringWithFormat:@"%d", markersCount];
         NSString *sannotationsCount = [NSString stringWithFormat:@"%d", _annotationsCount];
         NSLog(smarkersCount);
         NSLog(sannotationsCount);
-        
+
         if(markersCount < _annotationsCount) {
             int start = _annotationsCount - 1;
             for(int i = start; i >= markersCount; i--) {
-                BMKPointAnnotation *annotation = [_annotations objectAtIndex:i];
+                JDGAnnotation *annotation = [_annotations objectAtIndex:i];
                 [self removeAnnotation:annotation];
                 [_annotations removeObject:annotation];
             }
         }
-        
-        
+
+
     }
 }
 
@@ -90,12 +90,12 @@
     return coor;
 }
 
--(void)addMarker:(BMKPointAnnotation *)annotation option:(NSDictionary *)option {
+-(void)addMarker:(JDGAnnotation *)annotation option:(NSDictionary *)option {
     [self updateMarker:annotation option:option];
     [self addAnnotation:annotation];
 }
 
--(void)updateMarker:(BMKPointAnnotation *)annotation option:(NSDictionary *)option {
+-(void)updateMarker:(JDGAnnotation *)annotation option:(NSDictionary *)option {
     CLLocationCoordinate2D coor = [self getCoorFromMarkerOption:option];
     NSString *title = [RCTConvert NSString:option[@"title"]];
     if(title.length == 0) {
