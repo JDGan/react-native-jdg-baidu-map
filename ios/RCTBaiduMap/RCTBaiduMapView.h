@@ -9,9 +9,7 @@
 #ifndef RCTBaiduMapView_h
 #define RCTBaiduMapView_h
 
-
 #import "RCTViewManager.h"
-#import "RCTConvert+CoreLocation.h"
 #import <BaiduMapAPI_Map/BMKMapView.h>
 #import "JDGAnnotationView.h"
 #import <UIKit/UIKit.h>

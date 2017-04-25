@@ -77,17 +77,22 @@ onClickedMapBlank:(CLLocationCoordinate2D)coordinate {
 
 -(void)mapView:(BMKMapView *)mapView
 didSelectAnnotationView:(BMKAnnotationView *)view {
-    NSDictionary* event = @{
-                            @"type": @"onMarkerClick",
-                            @"params": @{
-                                    @"title": [[view annotation] title],
-                                    @"position": @{
-                                            @"latitude": @([[view annotation] coordinate].latitude),
-                                            @"longitude": @([[view annotation] coordinate].longitude)
-                                            }
-                                    }
-                            };
-    [self sendEvent:mapView params:event];
+    if ([view.annotation isKindOfClass:[JDGAnnotation class]) {
+        JDGAnnotation * anno = (JDGAnnotation *)view.annotation;
+        NSDictionary* event = @{
+                                @"type": @"onMarkerClick",
+                                @"params": @{
+                                        @"id": anno.identifier,
+                                        @"title": anno.title,
+                                        @"frontTitle": anno.frontTitle,
+                                        @"position": @{
+                                                @"latitude": @(anno.latitude),
+                                                @"longitude": @(anno.longitude)
+                                                }
+                                        }
+                                };
+        [self sendEvent:mapView params:event];
+    }
 }
 
 - (void) mapView:(BMKMapView *)mapView
@@ -106,10 +111,9 @@ didSelectAnnotationView:(BMKAnnotationView *)view {
 }
 
 - (BMKAnnotationView *)mapView:(BMKMapView *)mapView viewForAnnotation:(id <BMKAnnotation>)annotation {
-    if ([annotation isKindOfClass:[BMKPointAnnotation class]]) {
-        BMKPinAnnotationView *newAnnotationView = [[BMKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"myAnnotation"];
-        newAnnotationView.pinColor = BMKPinAnnotationColorPurple;
-        newAnnotationView.animatesDrop = YES;
+    if ([annotation isKindOfClass:[JDGAnnotation class]]) {
+        JDGAnnotationView *newAnnotationView = [[JDGAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:annotation.identifier];
+        [newAnnotationView customizedWithAnnotation:annotation];
         return newAnnotationView;
     }
     return nil;

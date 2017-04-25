@@ -9,6 +9,18 @@
 #import <UIKit/UIKit.h>
 #import <BaiduMapAPI_Map/BMKPinAnnotationView.h>
 #import <BaiduMapAPI_Map/BMKPointAnnotation.h>
+#import "JDGAnnotation.h"
 @interface JDGAnnotationView : BMKPinAnnotationView
+
+- (void)customizedWithAnnotation:(JDGAnnotation *)anno;
+
+- (void)setFrontTitle:(NSString *)title;
+- (void)setFrontSubtitle:(NSString *)subtitle;
+
+- (void)setBackgroundHeading:(CLLocationDegrees)heading;
+- (void)setBackgroundImage:(UIImage *)image;
+- (void)setBackgroundAnimateImages:(NSArray<UIImage*>*) animateBackgroundImages;
+- (void)setBackgroundAnimating:(BOOL)isAnimating;
+- (void)setBackgroundAnimateDuration:(NSTimeInterval) duration;
 
 @end

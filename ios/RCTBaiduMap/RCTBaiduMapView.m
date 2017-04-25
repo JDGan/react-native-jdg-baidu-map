@@ -7,6 +7,7 @@
 //
 
 #import "RCTBaiduMapView.h"
+#import "RCTConvert+CoreLocation.h"
 
 @implementation RCTBaiduMapView {
     BMKMapView* _mapView;
@@ -81,29 +82,13 @@
     }
 }
 
--(CLLocationCoordinate2D)getCoorFromMarkerOption:(NSDictionary *)option {
-    double lat = [RCTConvert double:option[@"latitude"]];
-    double lng = [RCTConvert double:option[@"longitude"]];
-    CLLocationCoordinate2D coor;
-    coor.latitude = lat;
-    coor.longitude = lng;
-    return coor;
-}
-
 -(void)addMarker:(JDGAnnotation *)annotation option:(NSDictionary *)option {
     [self updateMarker:annotation option:option];
     [self addAnnotation:annotation];
 }
 
 -(void)updateMarker:(JDGAnnotation *)annotation option:(NSDictionary *)option {
-    CLLocationCoordinate2D coor = [self getCoorFromMarkerOption:option];
-    NSString *title = [RCTConvert NSString:option[@"title"]];
-    if(title.length == 0) {
-        title = nil;
-    }
-    annotation.coordinate = coor;
-    annotation.title = title;
+    [annotation customizedWithOptions:option];
 }
-
 
 @end
