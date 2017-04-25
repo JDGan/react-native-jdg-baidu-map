@@ -11,7 +11,7 @@
 
 @implementation JDGAnnotation
 
-- (void)customizedWithOptions:(NSDictionary *)options {
+- (void)customizedWithOptions:(NSDictionary *)option {
     self.identifier = [RCTConvert NSString:option[@"id"]];
     self.frontTitle = [RCTConvert NSString:option[@"frontTitle"]];
     self.frontSubtitle = [RCTConvert NSString:option[@"frontSubtitle"]];
@@ -22,7 +22,7 @@
     self.animateBackgroundDuration = [RCTConvert NSTimeInterval:option[@"animateBackgroundDuration"]];
     
     self.title = [RCTConvert NSString:option[@"title"]];
-    CLLocationCoordinate2D loc = [self getCoordinateFromOption:options];
+    CLLocationCoordinate2D loc = [self getCoordinateFromOption:option];
     self.coordinate = loc;
 }
 

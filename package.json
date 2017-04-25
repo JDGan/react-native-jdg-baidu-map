@@ -1,6 +1,6 @@
 {
   "name": "react-native-jdg-baidu-map",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "基于react-native-baidu-map改的百度地图",
   "main": "index.js",
   "scripts": {
