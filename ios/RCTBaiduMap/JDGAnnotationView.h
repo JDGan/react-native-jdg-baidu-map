@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <BaiduMapAPI_Map/BMKPinAnnotationView.h>
+#import <BaiduMapAPI_Map/BMKAnnotationView.h>
 #import <BaiduMapAPI_Map/BMKPointAnnotation.h>
 #import "JDGAnnotation.h"
-@interface JDGAnnotationView : BMKPinAnnotationView
+@interface JDGAnnotationView : BMKAnnotationView
 
 - (void)customizedWithAnnotation:(JDGAnnotation *)anno;
 
