@@ -77,7 +77,7 @@ onClickedMapBlank:(CLLocationCoordinate2D)coordinate {
 
 -(void)mapView:(BMKMapView *)mapView
 didSelectAnnotationView:(BMKAnnotationView *)view {
-    if ([view.annotation isKindOfClass:[JDGAnnotation class]) {
+    if ([view.annotation isKindOfClass:[JDGAnnotation class]]) {
         JDGAnnotation * anno = (JDGAnnotation *)view.annotation;
         NSDictionary* event = @{
                                 @"type": @"onMarkerClick",
@@ -86,8 +86,8 @@ didSelectAnnotationView:(BMKAnnotationView *)view {
                                         @"title": anno.title,
                                         @"frontTitle": anno.frontTitle,
                                         @"position": @{
-                                                @"latitude": @(anno.latitude),
-                                                @"longitude": @(anno.longitude)
+                                                @"latitude": @(anno.coordinate.latitude),
+                                                @"longitude": @(anno.coordinate.longitude)
                                                 }
                                         }
                                 };
@@ -112,7 +112,8 @@ didSelectAnnotationView:(BMKAnnotationView *)view {
 
 - (BMKAnnotationView *)mapView:(BMKMapView *)mapView viewForAnnotation:(id <BMKAnnotation>)annotation {
     if ([annotation isKindOfClass:[JDGAnnotation class]]) {
-        JDGAnnotationView *newAnnotationView = [[JDGAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:annotation.identifier];
+        JDGAnnotation * anno = (JDGAnnotation *)annotation;
+        JDGAnnotationView *newAnnotationView = [[JDGAnnotationView alloc] initWithAnnotation:anno reuseIdentifier:anno.identifier];
         [newAnnotationView customizedWithAnnotation:annotation];
         return newAnnotationView;
     }
