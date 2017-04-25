@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		713FECB21EA4BA6C00B766D9 /* JDGAnnotaionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 713FECB11EA4BA6C00B766D9 /* JDGAnnotaionView.m */; };
+		713FECB21EA4BA6C00B766D9 /* JDGAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 713FECB11EA4BA6C00B766D9 /* JDGAnnotationView.m */; };
 		713FECB51EA4BA8100B766D9 /* JDGAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 713FECB41EA4BA8100B766D9 /* JDGAnnotation.m */; };
 		EF154DCB1D56218D003146DF /* BaiduMapModule.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EF3C22621CC2C3BE0099E9B6 /* BaiduMapModule.h */; };
 		EF154DCC1D562193003146DF /* RCTBaiduMapViewManager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EF6660E71D55E68000DB8D08 /* RCTBaiduMapViewManager.h */; };
@@ -35,8 +35,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		713FECB01EA4BA6C00B766D9 /* JDGAnnotaionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDGAnnotaionView.h; sourceTree = "<group>"; };
-		713FECB11EA4BA6C00B766D9 /* JDGAnnotaionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDGAnnotaionView.m; sourceTree = "<group>"; };
+		713FECB01EA4BA6C00B766D9 /* JDGAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDGAnnotationView.h; sourceTree = "<group>"; };
+		713FECB11EA4BA6C00B766D9 /* JDGAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDGAnnotationView.m; sourceTree = "<group>"; };
 		713FECB31EA4BA8100B766D9 /* JDGAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDGAnnotation.h; sourceTree = "<group>"; };
 		713FECB41EA4BA8100B766D9 /* JDGAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDGAnnotation.m; sourceTree = "<group>"; };
 		EF3C22561CC2C30D0099E9B6 /* libRCTBaiduMap.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRCTBaiduMap.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,8 +92,8 @@
 				EF4ABB0C1DC378CF008E75C9 /* GeolocationModule.m */,
 				EF4ABB0E1DC37929008E75C9 /* BaseModule.h */,
 				EF4ABB0F1DC3793A008E75C9 /* BaseModule.m */,
-				713FECB01EA4BA6C00B766D9 /* JDGAnnotaionView.h */,
-				713FECB11EA4BA6C00B766D9 /* JDGAnnotaionView.m */,
+				713FECB01EA4BA6C00B766D9 /* JDGAnnotationView.h */,
+				713FECB11EA4BA6C00B766D9 /* JDGAnnotationView.m */,
 				713FECB31EA4BA8100B766D9 /* JDGAnnotation.h */,
 				713FECB41EA4BA8100B766D9 /* JDGAnnotation.m */,
 			);
@@ -157,7 +157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				713FECB51EA4BA8100B766D9 /* JDGAnnotation.m in Sources */,
-				713FECB21EA4BA6C00B766D9 /* JDGAnnotaionView.m in Sources */,
+				713FECB21EA4BA6C00B766D9 /* JDGAnnotationView.m in Sources */,
 				EF4ABB0D1DC378CF008E75C9 /* GeolocationModule.m in Sources */,
 				EF4ABB101DC3793B008E75C9 /* BaseModule.m in Sources */,
 				EF3C22641CC2C3D30099E9B6 /* BaiduMapModule.m in Sources */,

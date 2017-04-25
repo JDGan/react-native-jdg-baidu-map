@@ -1,6 +1,6 @@
 {
   "name": "react-native-jdg-baidu-map",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "基于react-native-baidu-map改的百度地图",
   "main": "index.js",
   "scripts": {
@@ -13,5 +13,13 @@
     "native"
   ],
   "author": "JDGan",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JDGan/react-native-jdg-baidu-map.git"
+  },
+  "bugs": {
+    "url": "https://github.com/JDGan/react-native-jdg-baidu-map/issues"
+  },
+  "homepage": "https://github.com/JDGan/react-native-jdg-baidu-map#readme"
 }
