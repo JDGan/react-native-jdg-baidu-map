@@ -14,7 +14,6 @@
     ]
   ],
   "_from": "react-native-jdg-baidu-map@0.0.5",
-  "_id": "react-native-jdg-baidu-map@0.0.5",
   "_inCache": true,
   "_location": "/react-native-jdg-baidu-map",
   "_nodeVersion": "7.7.4",
@@ -46,9 +45,7 @@
   "_shrinkwrap": null,
   "_spec": "react-native-jdg-baidu-map@0.0.5",
   "_where": "/Users/jdg/Desktop/rn/leanmarketing-rn",
-  "author": {
-    "name": "JDGan"
-  },
+  "author": "JDGan",
   "bugs": {
     "url": "https://github.com/JDGan/react-native-jdg-baidu-map/issues"
   },
@@ -60,7 +57,6 @@
     "shasum": "57a7ae1f5ca031d083b83283604e11d94a9315de",
     "tarball": "https://registry.npmjs.org/react-native-jdg-baidu-map/-/react-native-jdg-baidu-map-0.0.5.tgz"
   },
-  "gitHead": "010e08173db5a36ceccd5c48134823d338c245c8",
   "homepage": "https://github.com/JDGan/react-native-jdg-baidu-map#readme",
   "keywords": [
     "baidu",
@@ -71,14 +67,10 @@
   "license": "ISC",
   "main": "index.js",
   "maintainers": [
-    {
-      "name": "ganll",
-      "email": "jessiegan1987@163.com"
-    }
+    "ganll <jessiegan1987@163.com>"
   ],
   "name": "react-native-jdg-baidu-map",
   "optionalDependencies": {},
-  "readme": "ERROR: No README data found!",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/JDGan/react-native-jdg-baidu-map.git"
@@ -86,5 +78,5 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "version": "0.0.5"
+  "version": "0.0.8"
 }
