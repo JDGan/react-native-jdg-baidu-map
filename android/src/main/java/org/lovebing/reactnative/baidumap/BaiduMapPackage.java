@@ -1,4 +1,4 @@
-package org.lovebing.reactnative.baidumap;
+package com.letto.test.baidumapdemo.npm;
 
 import android.app.Activity;
 import android.content.Context;

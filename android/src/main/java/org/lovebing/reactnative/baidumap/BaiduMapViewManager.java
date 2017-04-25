@@ -1,10 +1,11 @@
-package org.lovebing.reactnative.baidumap;
+package com.letto.test.baidumapdemo.npm;
 
 import android.content.Context;
 import android.graphics.Point;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.baidu.mapapi.map.BaiduMap;
@@ -44,6 +45,9 @@ public class BaiduMapViewManager extends ViewGroupManager<MapView> {
     private HashMap<String, Marker> mMarkerMap = new HashMap<>();
     private HashMap<String, List<Marker>> mMarkersMap = new HashMap<>();
     private TextView mMarkerText;
+    private TextView frontTextView;
+    private TextView frontSubTextView;
+    private ImageView imageView;
 
     public String getName() {
         return REACT_CLASS;
@@ -131,6 +135,10 @@ public class BaiduMapViewManager extends ViewGroupManager<MapView> {
                 marker = MarkerUtil.addMarker(mapView, option);
                 mMarkerMap.put(key, marker);
             }
+            frontTextView.setText(option.getString("frontTitle"));
+            frontSubTextView.setText(option.getString("frontSubtitle"));
+
+            imageView.s
         }
     }
 
@@ -177,6 +185,13 @@ public class BaiduMapViewManager extends ViewGroupManager<MapView> {
             mMarkerText = new TextView(mapView.getContext());
             mMarkerText.setBackgroundResource(R.drawable.popup);
             mMarkerText.setPadding(32, 32, 32, 32);
+            frontTextView = new TextView(mapView.getContext());
+            frontTextView.setTextSize(17f);
+            frontTextView.setPadding(32, 32, 32, 32);
+            frontSubTextView = new TextView(mapView.getContext());
+            frontSubTextView.setTextSize(13f);
+            frontSubTextView.setPadding(32, 32, 32, 32);
+            imageView = new ImageView(mapView.getContext());
         }
         map.setOnMapStatusChangeListener(new BaiduMap.OnMapStatusChangeListener() {
 

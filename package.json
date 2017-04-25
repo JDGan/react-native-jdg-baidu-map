@@ -1,25 +1,90 @@
 {
-  "name": "react-native-jdg-baidu-map",
-  "version": "0.0.4",
-  "description": "基于react-native-baidu-map改的百度地图",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "_args": [
+    [
+      {
+        "raw": "react-native-jdg-baidu-map@0.0.5",
+        "scope": null,
+        "escapedName": "react-native-jdg-baidu-map",
+        "name": "react-native-jdg-baidu-map",
+        "rawSpec": "0.0.5",
+        "spec": "0.0.5",
+        "type": "version"
+      },
+      "/Users/jdg/Desktop/rn/leanmarketing-rn"
+    ]
+  ],
+  "_from": "react-native-jdg-baidu-map@0.0.5",
+  "_id": "react-native-jdg-baidu-map@0.0.5",
+  "_inCache": true,
+  "_location": "/react-native-jdg-baidu-map",
+  "_nodeVersion": "7.7.4",
+  "_npmOperationalInternal": {
+    "host": "packages-18-east.internal.npmjs.com",
+    "tmp": "tmp/react-native-jdg-baidu-map-0.0.5.tgz_1493102269249_0.34841963090002537"
   },
+  "_npmUser": {
+    "name": "ganll",
+    "email": "jessiegan1987@163.com"
+  },
+  "_npmVersion": "4.1.2",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "react-native-jdg-baidu-map@0.0.5",
+    "scope": null,
+    "escapedName": "react-native-jdg-baidu-map",
+    "name": "react-native-jdg-baidu-map",
+    "rawSpec": "0.0.5",
+    "spec": "0.0.5",
+    "type": "version"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/react-native-jdg-baidu-map/-/react-native-jdg-baidu-map-0.0.5.tgz",
+  "_shasum": "57a7ae1f5ca031d083b83283604e11d94a9315de",
+  "_shrinkwrap": null,
+  "_spec": "react-native-jdg-baidu-map@0.0.5",
+  "_where": "/Users/jdg/Desktop/rn/leanmarketing-rn",
+  "author": {
+    "name": "JDGan"
+  },
+  "bugs": {
+    "url": "https://github.com/JDGan/react-native-jdg-baidu-map/issues"
+  },
+  "dependencies": {},
+  "description": "基于react-native-baidu-map改的百度地图",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "57a7ae1f5ca031d083b83283604e11d94a9315de",
+    "tarball": "https://registry.npmjs.org/react-native-jdg-baidu-map/-/react-native-jdg-baidu-map-0.0.5.tgz"
+  },
+  "gitHead": "010e08173db5a36ceccd5c48134823d338c245c8",
+  "homepage": "https://github.com/JDGan/react-native-jdg-baidu-map#readme",
   "keywords": [
     "baidu",
     "map",
     "react",
     "native"
   ],
-  "author": "JDGan",
   "license": "ISC",
+  "main": "index.js",
+  "maintainers": [
+    {
+      "name": "ganll",
+      "email": "jessiegan1987@163.com"
+    }
+  ],
+  "name": "react-native-jdg-baidu-map",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/JDGan/react-native-jdg-baidu-map.git"
   },
-  "bugs": {
-    "url": "https://github.com/JDGan/react-native-jdg-baidu-map/issues"
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "homepage": "https://github.com/JDGan/react-native-jdg-baidu-map#readme"
+  "version": "0.0.5"
 }

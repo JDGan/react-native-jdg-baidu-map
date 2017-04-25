@@ -1,4 +1,4 @@
-package org.lovebing.reactnative.baidumap;
+package com.letto.test.baidumapdemo.npm;
 
 import com.facebook.react.bridge.ReactApplicationContext;
 

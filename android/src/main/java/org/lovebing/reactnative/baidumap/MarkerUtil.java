@@ -1,4 +1,4 @@
-package org.lovebing.reactnative.baidumap;
+package com.letto.test.baidumapdemo.npm;
 
 import android.util.Log;
 import android.widget.Button;
@@ -12,6 +12,7 @@ import com.baidu.mapapi.map.MarkerOptions;
 import com.baidu.mapapi.map.OverlayOptions;
 import com.baidu.mapapi.model.LatLng;
 import com.facebook.react.bridge.ReadableMap;
+import com.letto.test.baidumapdemo.R;
 
 /**
  * Created by lovebing on Sept 28, 2016.
@@ -25,12 +26,19 @@ public class MarkerUtil {
     }
 
     public static Marker addMarker(MapView mapView, ReadableMap option) {
-        BitmapDescriptor bitmap = BitmapDescriptorFactory.fromResource(R.mipmap.icon_gcoding);
+        BitmapDescriptor bitmap = BitmapDescriptorFactory.fromResource(R.color.BLUE);
         LatLng position = getLatLngFromOption(option);
-        OverlayOptions overlayOptions = new MarkerOptions()
+        CustomParam overlayOptions = new MarkerOptions()
                 .icon(bitmap)
                 .position(position)
                 .title(option.getString("title"));
+        overlayOptions.setFrontTitle(option.getString("frontTitle"));
+        overlayOptions.setFrontSubtitle(option.getString("frontSubtitle"));
+        overlayOptions.setBackgroundImageHeading(option.getFloat("backgroundImageHeading"));
+        overlayOptions.setBackgroundImage(option.getMap("backgroundImage").getString("uri"));
+        overlayOptions.setBackgroundAnimating(option.getBoolean("isBackgroundAnimating"));
+        overlayOptions.setAnimateBackgroundImages(option.getString("animateBackgroundImages"));
+        overlayOptions.setAnimateBackgroundDuration(option.getDouble("animateBackgroundDuration"));
 
         Marker marker = (Marker)mapView.getMap().addOverlay(overlayOptions);
         return marker;
