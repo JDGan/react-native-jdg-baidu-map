@@ -27,6 +27,8 @@ project(':react-native-jdg-baidu-map').projectDir = new File(settingsDir, '../no
 - 添加 BaiduMapAPI_Map.framework/Resources/mapapi.bundle
 - 添加 BaiduNaviSDK/baiduNaviSDK.bundle、BaiduNaviSDK/baiduNaviSDK.xcassets
 
+# 注意！导航库需要自行下载，文件太大，不能放到git上，导航版本为v3.1.0
+下载后的libbaiduNaviSDK请放到 react-native-jdg-baidu-map/ios/lib/BaiduNaviSDK/ 下
 - 其它一些注意事项可参考百度地图LBS文档
 
 ##### AppDelegate.m init 初始化
