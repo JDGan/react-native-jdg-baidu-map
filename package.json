@@ -2,24 +2,25 @@
   "_args": [
     [
       {
-        "raw": "react-native-jdg-baidu-map@0.0.5",
+        "raw": "react-native-jdg-baidu-map@0.0.8",
         "scope": null,
         "escapedName": "react-native-jdg-baidu-map",
         "name": "react-native-jdg-baidu-map",
-        "rawSpec": "0.0.5",
-        "spec": "0.0.5",
+        "rawSpec": "0.0.8",
+        "spec": "0.0.8",
         "type": "version"
       },
       "/Users/jdg/Desktop/rn/leanmarketing-rn"
     ]
   ],
-  "_from": "react-native-jdg-baidu-map@0.0.5",
+  "_from": "react-native-jdg-baidu-map@0.0.8",
+  "_id": "react-native-jdg-baidu-map@0.0.8",
   "_inCache": true,
   "_location": "/react-native-jdg-baidu-map",
   "_nodeVersion": "7.7.4",
   "_npmOperationalInternal": {
-    "host": "packages-18-east.internal.npmjs.com",
-    "tmp": "tmp/react-native-jdg-baidu-map-0.0.5.tgz_1493102269249_0.34841963090002537"
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/react-native-jdg-baidu-map-0.0.8.tgz_1493190283382_0.2376365065574646"
   },
   "_npmUser": {
     "name": "ganll",
@@ -28,49 +29,50 @@
   "_npmVersion": "4.1.2",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "react-native-jdg-baidu-map@0.0.5",
+    "raw": "react-native-jdg-baidu-map@0.0.8",
     "scope": null,
     "escapedName": "react-native-jdg-baidu-map",
     "name": "react-native-jdg-baidu-map",
-    "rawSpec": "0.0.5",
-    "spec": "0.0.5",
+    "rawSpec": "0.0.8",
+    "spec": "0.0.8",
     "type": "version"
   },
   "_requiredBy": [
     "#USER",
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/react-native-jdg-baidu-map/-/react-native-jdg-baidu-map-0.0.5.tgz",
-  "_shasum": "57a7ae1f5ca031d083b83283604e11d94a9315de",
+  "_resolved": "https://registry.npmjs.org/react-native-jdg-baidu-map/-/react-native-jdg-baidu-map-0.0.8.tgz",
+  "_shasum": "7c736143e6d9409525b1b989116c5d1d1de3b4b3",
   "_shrinkwrap": null,
-  "_spec": "react-native-jdg-baidu-map@0.0.5",
+  "_spec": "react-native-jdg-baidu-map@0.0.8",
   "_where": "/Users/jdg/Desktop/rn/leanmarketing-rn",
-  "author": "JDGan",
+  "author": {
+    "name": "JDGan"
+  },
   "bugs": {
     "url": "https://github.com/JDGan/react-native-jdg-baidu-map/issues"
   },
   "dependencies": {},
-  "description": "基于react-native-baidu-map改的百度地图",
+  "description": "基于react-native-baidu-map 修改的地图，目前依然在完善中",
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "57a7ae1f5ca031d083b83283604e11d94a9315de",
-    "tarball": "https://registry.npmjs.org/react-native-jdg-baidu-map/-/react-native-jdg-baidu-map-0.0.5.tgz"
+    "shasum": "7c736143e6d9409525b1b989116c5d1d1de3b4b3",
+    "tarball": "https://registry.npmjs.org/react-native-jdg-baidu-map/-/react-native-jdg-baidu-map-0.0.8.tgz"
   },
+  "gitHead": "47ff5eb2ba337abd372724f9d3983c4f3e65c15c",
   "homepage": "https://github.com/JDGan/react-native-jdg-baidu-map#readme",
-  "keywords": [
-    "baidu",
-    "map",
-    "react",
-    "native"
-  ],
   "license": "ISC",
   "main": "index.js",
   "maintainers": [
-    "ganll <jessiegan1987@163.com>"
+    {
+      "name": "ganll",
+      "email": "jessiegan1987@163.com"
+    }
   ],
   "name": "react-native-jdg-baidu-map",
   "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/JDGan/react-native-jdg-baidu-map.git"
