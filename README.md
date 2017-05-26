@@ -1,7 +1,7 @@
 
-Baidu Map SDK modules and view for React Native(Android & IOS), support react native 0.30+
+Baidu Map SDK modules and view for React Native(Android & IOS), support react native 0.40+
 
-百度地图 React Native 模块，支持 react native 0.30+
+百度地图 React Native 模块，支持 react native 0.40+
 
 ### Install 安装
     npm install react-native-jdg-baidu-map --save
@@ -29,6 +29,7 @@ project(':react-native-jdg-baidu-map').projectDir = new File(settingsDir, '../no
 
 # 注意！导航库需要自行下载，文件太大，不能放到git上，导航版本为v3.1.0
 下载后的libbaiduNaviSDK请放到 react-native-jdg-baidu-map/ios/lib/BaiduNaviSDK/ 下
+
 - 其它一些注意事项可参考百度地图LBS文档
 
 ##### AppDelegate.m init 初始化
