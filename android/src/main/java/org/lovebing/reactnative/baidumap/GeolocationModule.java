@@ -1,4 +1,5 @@
-package com.letto.test.baidumapdemo.npm;
+package org.lovebing.reactnative.baidumap;
+
 
 import android.util.Log;
 
@@ -51,12 +52,12 @@ public class GeolocationModule extends BaseModule
         Log.i("locationClient", "locationClient");
         locationClient.registerLocationListener(this);
     }
+
     /**
-     *
      * @return
      */
     protected GeoCoder getGeoCoder() {
-        if(geoCoder != null) {
+        if (geoCoder != null) {
             geoCoder.destroy();
         }
         geoCoder = GeoCoder.newInstance();
@@ -65,7 +66,6 @@ public class GeolocationModule extends BaseModule
     }
 
     /**
-     *
      * @param sourceLatLng
      * @return
      */
@@ -80,12 +80,13 @@ public class GeolocationModule extends BaseModule
 
     @ReactMethod
     public void getCurrentPosition() {
-        if(locationClient == null) {
+        if (locationClient == null) {
             initLocationClient();
         }
         Log.i("getCurrentPosition", "getCurrentPosition");
         locationClient.start();
     }
+
     @ReactMethod
     public void geocode(String city, String addr) {
         getGeoCoder().geocode(new GeoCodeOption()
@@ -133,10 +134,9 @@ public class GeolocationModule extends BaseModule
         WritableMap params = Arguments.createMap();
         if (result == null || result.error != SearchResult.ERRORNO.NO_ERROR) {
             params.putInt("errcode", -1);
-        }
-        else {
-            params.putDouble("latitude",  result.getLocation().latitude);
-            params.putDouble("longitude",  result.getLocation().longitude);
+        } else {
+            params.putDouble("latitude", result.getLocation().latitude);
+            params.putDouble("longitude", result.getLocation().longitude);
         }
         sendEvent("onGetGeoCodeResult", params);
     }
@@ -146,8 +146,7 @@ public class GeolocationModule extends BaseModule
         WritableMap params = Arguments.createMap();
         if (result == null || result.error != SearchResult.ERRORNO.NO_ERROR) {
             params.putInt("errcode", -1);
-        }
-        else {
+        } else {
             ReverseGeoCodeResult.AddressComponent addressComponent = result.getAddressDetail();
             params.putString("address", result.getAddress());
             params.putString("province", addressComponent.province);
@@ -158,4 +157,13 @@ public class GeolocationModule extends BaseModule
         }
         sendEvent("onGetReverseGeoCodeResult", params);
     }
+
+    @Override
+    public void onConnectHotSpotMessage(String string, int i) {
+        WritableMap params = Arguments.createMap();
+        params.putString("string", string);
+        params.putInt("i", i);
+        sendEvent("onGetReverseGeoCodeResult", params);
+    }
+
 }

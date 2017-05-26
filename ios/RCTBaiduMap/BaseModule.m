@@ -12,6 +12,10 @@
 
 @synthesize bridge = _bridge;
 
++ (NSString *)moduleName{
+    return @"BaseModule";
+}
+
 -(NSMutableDictionary *)getEmptyBody {
     NSMutableDictionary *body = @{}.mutableCopy;
     return body;

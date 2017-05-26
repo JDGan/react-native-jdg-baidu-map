@@ -1,4 +1,4 @@
-package com.letto.test.baidumapdemo.npm;
+package org.lovebing.reactnative.baidumap;
 
 import android.app.Activity;
 import android.content.Context;
@@ -27,7 +27,7 @@ public class BaiduMapPackage implements ReactPackage {
     public BaiduMapPackage(Context context) {
         this.mContext = context;
         baiduMapViewManager = new BaiduMapViewManager();
-        baiduMapViewManager.initSDK(context);
+        baiduMapViewManager.initSDK(mContext);
     }
 
     @Override

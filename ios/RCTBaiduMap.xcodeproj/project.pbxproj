@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		71362BBB1EB8545F0033015C /* libbaiduNaviSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 71362BBA1EB8545F0033015C /* libbaiduNaviSDK.a */; };
+		71362BC21EB858630033015C /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 71362BC01EB858630033015C /* libcrypto.a */; };
+		71362BC31EB858630033015C /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 71362BC11EB858630033015C /* libssl.a */; };
 		713FECB21EA4BA6C00B766D9 /* JDGAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 713FECB11EA4BA6C00B766D9 /* JDGAnnotationView.m */; };
 		713FECB51EA4BA8100B766D9 /* JDGAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 713FECB41EA4BA8100B766D9 /* JDGAnnotation.m */; };
+		717EA4211EB82DA400D02312 /* JDGNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 717EA4201EB82DA400D02312 /* JDGNavigation.m */; };
 		EF154DCB1D56218D003146DF /* BaiduMapModule.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EF3C22621CC2C3BE0099E9B6 /* BaiduMapModule.h */; };
 		EF154DCC1D562193003146DF /* RCTBaiduMapViewManager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EF6660E71D55E68000DB8D08 /* RCTBaiduMapViewManager.h */; };
 		EF3C225A1CC2C30D0099E9B6 /* RCTBaiduMapView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EF3C22591CC2C30D0099E9B6 /* RCTBaiduMapView.h */; };
@@ -35,10 +39,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		71362BBA1EB8545F0033015C /* libbaiduNaviSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libbaiduNaviSDK.a; path = lib/BaiduNaviSDK/libbaiduNaviSDK.a; sourceTree = "<group>"; };
+		71362BC01EB858630033015C /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = lib/thirdlibs/libcrypto.a; sourceTree = "<group>"; };
+		71362BC11EB858630033015C /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = lib/thirdlibs/libssl.a; sourceTree = "<group>"; };
 		713FECB01EA4BA6C00B766D9 /* JDGAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDGAnnotationView.h; sourceTree = "<group>"; };
 		713FECB11EA4BA6C00B766D9 /* JDGAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDGAnnotationView.m; sourceTree = "<group>"; };
 		713FECB31EA4BA8100B766D9 /* JDGAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDGAnnotation.h; sourceTree = "<group>"; };
 		713FECB41EA4BA8100B766D9 /* JDGAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDGAnnotation.m; sourceTree = "<group>"; };
+		717EA41F1EB82DA400D02312 /* JDGNavigation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDGNavigation.h; sourceTree = "<group>"; };
+		717EA4201EB82DA400D02312 /* JDGNavigation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDGNavigation.m; sourceTree = "<group>"; };
 		EF3C22561CC2C30D0099E9B6 /* libRCTBaiduMap.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRCTBaiduMap.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF3C22591CC2C30D0099E9B6 /* RCTBaiduMapView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCTBaiduMapView.h; sourceTree = "<group>"; };
 		EF3C225B1CC2C30D0099E9B6 /* RCTBaiduMapView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCTBaiduMapView.m; sourceTree = "<group>"; };
@@ -57,17 +66,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71362BC21EB858630033015C /* libcrypto.a in Frameworks */,
+				71362BC31EB858630033015C /* libssl.a in Frameworks */,
+				71362BBB1EB8545F0033015C /* libbaiduNaviSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		717EA42E1EB837C300D02312 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				71362BC01EB858630033015C /* libcrypto.a */,
+				71362BC11EB858630033015C /* libssl.a */,
+				71362BBA1EB8545F0033015C /* libbaiduNaviSDK.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		EF3C224D1CC2C30D0099E9B6 = {
 			isa = PBXGroup;
 			children = (
 				EF3C22581CC2C30D0099E9B6 /* RCTBaiduMap */,
 				EF3C22571CC2C30D0099E9B6 /* Products */,
+				717EA42E1EB837C300D02312 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,6 +119,8 @@
 				713FECB11EA4BA6C00B766D9 /* JDGAnnotationView.m */,
 				713FECB31EA4BA8100B766D9 /* JDGAnnotation.h */,
 				713FECB41EA4BA8100B766D9 /* JDGAnnotation.m */,
+				717EA41F1EB82DA400D02312 /* JDGNavigation.h */,
+				717EA4201EB82DA400D02312 /* JDGNavigation.m */,
 			);
 			path = RCTBaiduMap;
 			sourceTree = "<group>";
@@ -163,6 +188,7 @@
 				EF3C22641CC2C3D30099E9B6 /* BaiduMapModule.m in Sources */,
 				EF3C225C1CC2C30D0099E9B6 /* RCTBaiduMapView.m in Sources */,
 				EF6660E91D55E69B00DB8D08 /* RCTBaiduMapViewManager.m in Sources */,
+				717EA4211EB82DA400D02312 /* JDGNavigation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,13 +278,22 @@
 		EF3C22601CC2C30D0099E9B6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/lib";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)/lib",
+					"$(SRCROOT)/../../react-native",
+				);
 				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/../../react-native/React/**",
-					"$(SRCROOT)/../../react-native/Libraries/**",
+					"$(SRCROOT)/lib/BaiduNaviSDK/inc",
+					"$(SRCROOT)/../../react-native",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/lib/BaiduNaviSDK",
+					"$(PROJECT_DIR)/lib/BaiduNaviSDK/thirdlibs",
+					"$(PROJECT_DIR)/lib/thirdlibs",
+					"$(SRCROOT)/../../react-native",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"$(inherited)",
@@ -271,13 +306,22 @@
 		EF3C22611CC2C30D0099E9B6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/lib";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)/lib",
+					"$(SRCROOT)/../../react-native",
+				);
 				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/../../react-native/React/**",
-					"$(SRCROOT)/../../react-native/Libraries/**",
+					"$(SRCROOT)/lib/BaiduNaviSDK/inc",
+					"$(SRCROOT)/../../react-native",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/lib/BaiduNaviSDK",
+					"$(PROJECT_DIR)/lib/BaiduNaviSDK/thirdlibs",
+					"$(PROJECT_DIR)/lib/thirdlibs",
+					"$(SRCROOT)/../../react-native",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"$(inherited)",

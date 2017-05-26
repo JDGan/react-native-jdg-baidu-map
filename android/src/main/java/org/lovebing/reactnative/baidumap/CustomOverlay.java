@@ -1,4 +1,5 @@
-package com.letto.test.baidumapdemo.npm;
+package org.lovebing.reactnative.baidumap;
+
 
 import com.baidu.mapapi.map.Overlay;
 

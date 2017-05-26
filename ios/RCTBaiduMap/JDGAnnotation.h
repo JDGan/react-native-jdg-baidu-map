@@ -17,6 +17,7 @@
 @property (nonatomic ,copy) NSString *frontSubtitle;
 
 @property (nonatomic ,assign) CLLocationDegrees backgroundImageHeading;
+@property (nonatomic ,strong) UIImage *frontImage;
 @property (nonatomic ,strong) UIImage *backgroundImage;
 @property (nonatomic ,assign) BOOL isBackgroundAnimating;
 @property (nonatomic ,strong) NSArray<UIImage*>* animateBackgroundImages;

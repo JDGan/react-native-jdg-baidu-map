@@ -1,4 +1,5 @@
-package com.letto.test.baidumapdemo.npm;
+package org.lovebing.reactnative.baidumap;
+
 
 import android.content.Context;
 import android.graphics.Point;
@@ -55,7 +56,7 @@ public class BaiduMapViewManager extends ViewGroupManager<MapView> {
 
 
     public void initSDK(Context context) {
-        SDKInitializer.initialize(context);
+//        SDKInitializer.initialize(context);
     }
 
     public MapView createViewInstance(ThemedReactContext context) {
@@ -138,7 +139,7 @@ public class BaiduMapViewManager extends ViewGroupManager<MapView> {
             frontTextView.setText(option.getString("frontTitle"));
             frontSubTextView.setText(option.getString("frontSubtitle"));
 
-            imageView.s
+
         }
     }
 

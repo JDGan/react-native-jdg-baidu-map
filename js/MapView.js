@@ -13,6 +13,8 @@ import React, {
 
 import MapTypes from './MapTypes';
 
+const _module = NativeModules.BaiduMapModule;
+
 export default class MapView extends Component {
   static propTypes = {
     ...View.propTypes,
@@ -25,6 +27,7 @@ export default class MapView extends Component {
     marker: PropTypes.object,
     markers: PropTypes.array,
     childrenPoints: PropTypes.array,
+    autoShowAllAnnotations: PropTypes.bool,
     onMapStatusChangeStart: PropTypes.func,
     onMapStatusChange: PropTypes.func,
     onMapStatusChangeFinish: PropTypes.func,
@@ -44,13 +47,13 @@ export default class MapView extends Component {
     marker: null,
     markers: [],
     center: null,
-    zoom: 10
+    autoShowAllAnnotations: true,
   };
 
   constructor() {
     super();
   }
-
+    
   _onChange(event) {
     if (typeof this.props[event.nativeEvent.type] === 'function') {
       this.props[event.nativeEvent.type](event.nativeEvent.params);

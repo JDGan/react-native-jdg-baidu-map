@@ -9,19 +9,25 @@
 #ifndef RCTBaiduMapView_h
 #define RCTBaiduMapView_h
 
-#import "RCTViewManager.h"
+#import "React/RCTViewManager.h"
 #import <BaiduMapAPI_Map/BMKMapView.h>
+#import <BaiduMapAPI_Base/BMKTypes.h>
+#import <BaiduMapAPI_Utils/BMKGeometry.h>
 #import "JDGAnnotationView.h"
-#import "RCTConvert+CoreLocation.h"
+#import "React/RCTConvert+CoreLocation.h"
 #import <UIKit/UIKit.h>
 
 @interface RCTBaiduMapView : BMKMapView <BMKMapViewDelegate>
 
 @property (nonatomic, copy) RCTBubblingEventBlock onChange;
 
+@property (nonatomic, assign) BOOL autoShowAllAnnotations;
+
 -(void)setZoom:(float)zoom;
 -(void)setCenterLatLng:(NSDictionary *)LatLngObj;
 -(void)setMarker:(NSDictionary *)Options;
+
+- (void)showAllAnnos;
 
 @end
 

@@ -15,8 +15,10 @@ import _MapTypes from './js/MapTypes';
 import _MapView from './js/MapView';
 import _MapModule from './js/MapModule';
 import _Geolocation from './js/Geolocation';
+import _Navigation from './js/Navigation';
 
-export const MapTypes = _MapTypes;
-export const MapView = _MapView;
-export const MapModule = _MapModule;
-export const Geolocation = _Geolocation;
+export const JDGMapTypes = _MapTypes;
+export const JDGMapView = _MapView;
+export const JDGMapModule = _MapModule;
+export const JDGGeolocation = _Geolocation;
+export const JDGNavigation = _Navigation;

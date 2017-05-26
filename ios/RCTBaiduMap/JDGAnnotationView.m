@@ -10,6 +10,7 @@
 
 @implementation JDGAnnotationView{
     UIImageView *_imageView;
+    UIImageView *_frontImageView;
     UILabel *_titleLabel;
     UILabel *_subtitleLabel;
 }
@@ -20,11 +21,19 @@
         _imageView = [[UIImageView alloc] init];
         [self addSubview:_imageView];
         
+        _frontImageView = [[UIImageView alloc] init];
+        [self addSubview:_frontImageView];
+        
         _titleLabel = [[UILabel alloc] init];
+        _titleLabel.textColor = [UIColor whiteColor];
+        _titleLabel.font = [UIFont systemFontOfSize:14];
         [self addSubview:_titleLabel];
         
         _subtitleLabel = [[UILabel alloc] init];
+        _subtitleLabel.textColor = [UIColor whiteColor];
+        _subtitleLabel.font = [UIFont systemFontOfSize:10];
         [self addSubview:_subtitleLabel];
+        
         
         if ([annotation isKindOfClass:[JDGAnnotation class]]) {
             [self customizedWithAnnotation:annotation];
@@ -38,6 +47,7 @@
     _titleLabel.text = nil;
     _subtitleLabel.text = nil;
     _imageView.image = nil;
+    _frontImageView.image = nil;
     _imageView.transform = CGAffineTransformIdentity;
 }
 
@@ -45,19 +55,46 @@
     self.annotation = anno;
     [self setFrontTitle:anno.frontTitle];
     [self setFrontSubtitle:anno.frontSubtitle];
+    [self setFrontImage:anno.frontImage];
     [self setBackgroundHeading:anno.backgroundImageHeading];
     [self setBackgroundImage:anno.backgroundImage];
     [self setBackgroundAnimateImages:anno.animateBackgroundImages];
     [self setBackgroundAnimateDuration:anno.animateBackgroundDuration];
     [self setBackgroundAnimating:anno.isBackgroundAnimating];
+    
+    [self resetSubviewsLayout];
+}
+
+- (void)resetSubviewsLayout {
+    self.frame = _imageView.bounds;
+    CGRect frame = _titleLabel.frame;
+    frame.origin = CGPointMake(4, 5);
+    _titleLabel.frame = frame;
+    frame.origin = CGPointMake(17, 8);
+    _subtitleLabel.frame = frame;
 }
 
 - (void)setFrontTitle:(NSString *)title {
     _titleLabel.text = title;
+    [_titleLabel sizeToFit];
 }
 
 - (void)setFrontSubtitle:(NSString *)subtitle {
     _subtitleLabel.text = subtitle;
+    [_subtitleLabel sizeToFit];
+}
+
+- (void)setFrontImage:(UIImage *)image {
+    if (image != nil) {
+        _frontImageView.image = image;
+        [_frontImageView sizeToFit];
+        CGRect frame = _frontImageView.frame;
+        frame.origin = CGPointMake(2, 5);
+        _frontImageView.frame = frame;
+        _frontImageView.hidden = NO;
+    } else {
+        _frontImageView.hidden = YES;
+    }
 }
 
 - (void)setBackgroundHeading:(CLLocationDegrees)heading {
@@ -68,7 +105,6 @@
 - (void)setBackgroundImage:(UIImage *)image {
     _imageView.image = image;
     [_imageView sizeToFit];
-    self.bounds = _imageView.bounds;
 }
 
 - (void)setBackgroundAnimateImages:(NSArray<UIImage *> *)animateBackgroundImages {

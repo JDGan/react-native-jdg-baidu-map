@@ -16,7 +16,7 @@
 
 - (void)setFrontTitle:(NSString *)title;
 - (void)setFrontSubtitle:(NSString *)subtitle;
-
+- (void)setFrontImage:(UIImage *)image;
 - (void)setBackgroundHeading:(CLLocationDegrees)heading;
 - (void)setBackgroundImage:(UIImage *)image;
 - (void)setBackgroundAnimateImages:(NSArray<UIImage*>*) animateBackgroundImages;

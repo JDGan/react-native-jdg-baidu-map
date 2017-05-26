@@ -1,4 +1,5 @@
-package com.letto.test.baidumapdemo.npm;
+package org.lovebing.reactnative.baidumap;
+
 
 import android.util.Log;
 import android.widget.Button;
@@ -12,7 +13,6 @@ import com.baidu.mapapi.map.MarkerOptions;
 import com.baidu.mapapi.map.OverlayOptions;
 import com.baidu.mapapi.model.LatLng;
 import com.facebook.react.bridge.ReadableMap;
-import com.letto.test.baidumapdemo.R;
 
 /**
  * Created by lovebing on Sept 28, 2016.
@@ -26,21 +26,21 @@ public class MarkerUtil {
     }
 
     public static Marker addMarker(MapView mapView, ReadableMap option) {
-        BitmapDescriptor bitmap = BitmapDescriptorFactory.fromResource(R.color.BLUE);
+//        BitmapDescriptor bitmap = BitmapDescriptorFactory.fromResource(R.color.black);
         LatLng position = getLatLngFromOption(option);
-        CustomParam overlayOptions = new MarkerOptions()
-                .icon(bitmap)
-                .position(position)
-                .title(option.getString("title"));
+        CustomParam overlayOptions = new CustomParam();
+//        overlayOptions.icon(bitmap)
+//                .position(position)
+//                .title(option.getString("title"));
         overlayOptions.setFrontTitle(option.getString("frontTitle"));
         overlayOptions.setFrontSubtitle(option.getString("frontSubtitle"));
-        overlayOptions.setBackgroundImageHeading(option.getFloat("backgroundImageHeading"));
-        overlayOptions.setBackgroundImage(option.getMap("backgroundImage").getString("uri"));
-        overlayOptions.setBackgroundAnimating(option.getBoolean("isBackgroundAnimating"));
-        overlayOptions.setAnimateBackgroundImages(option.getString("animateBackgroundImages"));
-        overlayOptions.setAnimateBackgroundDuration(option.getDouble("animateBackgroundDuration"));
+//        overlayOptions.setBackgroundImageHeading(option.getFloat("backgroundImageHeading"));
+//        overlayOptions.setBackgroundImage(option.getMap("backgroundImage").getString("uri"));
+//        overlayOptions.setBackgroundAnimating(option.getBoolean("isBackgroundAnimating"));
+//        overlayOptions.setAnimateBackgroundImages(option.getMap("animateBackgroundImages").getString("uri"));
+//        overlayOptions.setAnimateBackgroundDuration(option.getDouble("animateBackgroundDuration"));
 
-        Marker marker = (Marker)mapView.getMap().addOverlay(overlayOptions);
+        Marker marker = (Marker) mapView.getMap().addOverlay(overlayOptions);
         return marker;
     }
 

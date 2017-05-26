@@ -7,7 +7,7 @@
 //
 
 #import "JDGAnnotation.h"
-#import "RCTConvert+CoreLocation.h"
+#import "React/Views/RCTConvert+CoreLocation.h"
 
 @implementation JDGAnnotation
 
@@ -15,6 +15,7 @@
     self.identifier = [RCTConvert NSString:option[@"id"]];
     self.frontTitle = [RCTConvert NSString:option[@"frontTitle"]];
     self.frontSubtitle = [RCTConvert NSString:option[@"frontSubtitle"]];
+    self.frontImage = [RCTConvert UIImage:option[@"frontImage"]];
     self.backgroundImageHeading = [RCTConvert double:option[@"backgroundImageHeading"]];
     self.backgroundImage = [RCTConvert UIImage:option[@"backgroundImage"]];
     self.isBackgroundAnimating = [RCTConvert BOOL:option[@"isBackgroundAnimating"]];

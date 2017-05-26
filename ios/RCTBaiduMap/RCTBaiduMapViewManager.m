@@ -8,7 +8,9 @@
 
 #import "RCTBaiduMapViewManager.h"
 
-@implementation RCTBaiduMapViewManager;
+@implementation RCTBaiduMapViewManager {
+    RCTBaiduMapView * _mapView;
+}
 
 RCT_EXPORT_MODULE(RCTBaiduMapView)
 
@@ -18,12 +20,13 @@ RCT_EXPORT_VIEW_PROPERTY(trafficEnabled, BOOL)
 RCT_EXPORT_VIEW_PROPERTY(baiduHeatMapEnabled, BOOL)
 RCT_EXPORT_VIEW_PROPERTY(marker, NSDictionary*)
 RCT_EXPORT_VIEW_PROPERTY(markers, NSArray*)
-
+RCT_EXPORT_VIEW_PROPERTY(autoShowAllAnnotations,BOOL)
 RCT_EXPORT_VIEW_PROPERTY(onChange, RCTBubblingEventBlock)
 
 RCT_CUSTOM_VIEW_PROPERTY(center, CLLocationCoordinate2D, RCTBaiduMapView) {
     [view setCenterCoordinate:json ? [RCTConvert CLLocationCoordinate2D:json] : defaultView.centerCoordinate];
 }
+
 
 
 +(void)initSDK:(NSString*)key {
@@ -36,14 +39,13 @@ RCT_CUSTOM_VIEW_PROPERTY(center, CLLocationCoordinate2D, RCTBaiduMapView) {
 }
 
 - (UIView *)view {
-    RCTBaiduMapView* mapView = [[RCTBaiduMapView alloc] init];
-    mapView.delegate = self;
-    return mapView;
+    _mapView = [[RCTBaiduMapView alloc] init];
+    _mapView.delegate = self;
+    return _mapView;
 }
 
 -(void)mapview:(BMKMapView *)mapView
  onDoubleClick:(CLLocationCoordinate2D)coordinate {
-    NSLog(@"onDoubleClick");
     NSDictionary* event = @{
                             @"type": @"onMapDoubleClick",
                             @"params": @{
@@ -56,7 +58,6 @@ RCT_CUSTOM_VIEW_PROPERTY(center, CLLocationCoordinate2D, RCTBaiduMapView) {
 
 -(void)mapView:(BMKMapView *)mapView
 onClickedMapBlank:(CLLocationCoordinate2D)coordinate {
-    NSLog(@"onClickedMapBlank");
     NSDictionary* event = @{
                             @"type": @"onMapClick",
                             @"params": @{
@@ -73,6 +74,9 @@ onClickedMapBlank:(CLLocationCoordinate2D)coordinate {
                             @"params": @{}
                             };
     [self sendEvent:mapView params:event];
+    if (_mapView.autoShowAllAnnotations) {
+        [_mapView showAllAnnos];
+    }
 }
 
 -(void)mapView:(BMKMapView *)mapView
@@ -97,7 +101,6 @@ didSelectAnnotationView:(BMKAnnotationView *)view {
 
 - (void) mapView:(BMKMapView *)mapView
  onClickedMapPoi:(BMKMapPoi *)mapPoi {
-    NSLog(@"onClickedMapPoi");
     NSDictionary* event = @{
                             @"type": @"onMapPoiClick",
                             @"params": @{
@@ -121,7 +124,6 @@ didSelectAnnotationView:(BMKAnnotationView *)view {
 }
 
 -(void)mapStatusDidChanged: (BMKMapView *)mapView	 {
-    NSLog(@"mapStatusDidChanged");
     CLLocationCoordinate2D targetGeoPt = [mapView getMapStatus].targetGeoPt;
     NSDictionary* event = @{
                             @"type": @"onMapStatusChange",
@@ -137,7 +139,8 @@ didSelectAnnotationView:(BMKAnnotationView *)view {
     [self sendEvent:mapView params:event];
 }
 
--(void)sendEvent:(RCTBaiduMapView *) mapView params:(NSDictionary *) params {
+- (void)sendEvent:(BMKMapView *)bMapView params:(NSDictionary *) params {
+    RCTBaiduMapView *mapView = (RCTBaiduMapView*)bMapView;
     if (!mapView.onChange) {
         return;
     }
