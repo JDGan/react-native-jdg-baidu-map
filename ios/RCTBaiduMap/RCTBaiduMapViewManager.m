@@ -41,6 +41,7 @@ RCT_CUSTOM_VIEW_PROPERTY(center, CLLocationCoordinate2D, RCTBaiduMapView) {
 - (UIView *)view {
     _mapView = [[RCTBaiduMapView alloc] init];
     _mapView.delegate = self;
+    
     return _mapView;
 }
 
@@ -83,7 +84,7 @@ onClickedMapBlank:(CLLocationCoordinate2D)coordinate {
 didSelectAnnotationView:(BMKAnnotationView *)view {
     if ([view.annotation isKindOfClass:[JDGAnnotation class]]) {
         JDGAnnotation * anno = (JDGAnnotation *)view.annotation;
-        NSDictionary* event = @{
+        NSDictionary * event = @{
                                 @"type": @"onMarkerClick",
                                 @"params": @{
                                         @"id": anno.identifier,
@@ -134,6 +135,21 @@ didSelectAnnotationView:(BMKAnnotationView *)view {
                                             },
                                     @"zoom": @"",
                                     @"overlook": @""
+                                    }
+                            };
+    [self sendEvent:mapView params:event];
+}
+
+- (void)mapView:(BMKMapView *)mapView annotationViewForBubble:(BMKAnnotationView *)view {
+    JDGAnnotation * anno = view.annotation;
+    NSDictionary* event = @{
+                            @"type": @"onMapAnnotationBubbleClick",
+                            @"params": @{
+                                    @"target": @{
+                                            @"latitude": @(anno.coordinate.latitude),
+                                            @"longitude": @(anno.coordinate.longitude),
+                                            @"identifier": anno.identifier,
+                                            },
                                     }
                             };
     [self sendEvent:mapView params:event];
