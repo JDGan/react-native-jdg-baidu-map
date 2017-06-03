@@ -57,6 +57,7 @@ import {
   JDGNavigation
 } from 'react-native-jdg-baidu-map';
 `
+- 地图属性
 
 | JDGMapView                 | PropTypes          |  Description |
 | -------------------------- | :----------------: | :----------- |
@@ -80,3 +81,16 @@ import {
 |               onMapPoiClick|      PropTypes.func|地图POI点击回调|
 |  onMapAnnotationBubbleClick|      PropTypes.func|地图标注气泡点击回调|
 
+- 地图标注属性
+
+| JDGMapMarkers              | PropTypes          |  Description |
+| -------------------------- | :----------------: | :----------- |
+|                  identifier|              String|标注位置标识符，可重用|
+|                  frontTitle|              String|自用的标注前景标题文字，optional|
+|               frontSubtitle|              String|自用的标注前景副标题文字，optional|
+|      backgroundImageHeading|              Double|标注背景图片的朝向，degrees|
+|                  frontImage|               Image|自用的标注前置图片，optional，不会旋转|
+|             backgroundImage|               Image|单张的标注背景图片|
+|       isBackgroundAnimating|                Bool|是否启动背景轮播模式|
+|     animateBackgroundImages|               Array|背景轮播模式的图片数组|
+|   animateBackgroundDuration|              Double|背景轮播模式循环一次的时间|
