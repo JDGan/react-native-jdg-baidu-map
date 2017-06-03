@@ -33,6 +33,7 @@ project(':react-native-jdg-baidu-map').projectDir = new File(settingsDir, '../no
 - 其它一些注意事项可参考百度地图LBS文档
 
 ##### AppDelegate.m init 初始化
+
     #import "RCTBaiduMapViewManager.h"
     #import "JDGNavigation.h"
     - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -45,13 +46,37 @@ project(':react-native-jdg-baidu-map').projectDir = new File(settingsDir, '../no
 
 ### Android is Not supported yet (sadly)
 
-### Usage 使用方法
+***
 
+### Usage 使用方法
+`
 import {
   JDGMapView,
   JDGMapTypes,
-  JDGMapModule,
   JDGGeolocation,
+  JDGNavigation
 } from 'react-native-jdg-baidu-map';
+`
 
+| JDGMapView                 | PropTypes          |  Description |
+| -------------------------- | :----------------: | :----------- |
+|         zoomControlsVisible|      PropTypes.bool|是否显示缩放控件|
+|              trafficEnabled|      PropTypes.bool|是否显示实时交通路况|
+|         baiduHeatMapEnabled|      PropTypes.bool|是否显示热力|
+|                     mapType|    PropTypes.number|地图类型|
+|                        zoom|    PropTypes.number|放大系数|
+|                      center|    PropTypes.object|中心点经纬度|
+|                      marker|    PropTypes.object|单个地图标注|
+|                     markers|     PropTypes.array|多个地图标注|
+|              childrenPoints|     PropTypes.array|for Android Only|
+|      autoShowAllAnnotations|      PropTypes.bool|是否显示所有标注，自适应全显示|
+|      onMapStatusChangeStart|      PropTypes.func|地图状态变更开始回调|
+|           onMapStatusChange|      PropTypes.func|地图状态变更回调|
+|     onMapStatusChangeFinish|      PropTypes.func|地图状态变更完成回调|
+|                 onMapLoaded|      PropTypes.func|地图加载完成回调|
+|                  onMapClick|      PropTypes.func|地图单击回调|
+|            onMapDoubleClick|      PropTypes.func|地图双击回调|
+|               onMarkerClick|      PropTypes.func|地图标注点击回调|
+|               onMapPoiClick|      PropTypes.func|地图POI点击回调|
+|  onMapAnnotationBubbleClick|      PropTypes.func|地图标注气泡点击回调|
 
