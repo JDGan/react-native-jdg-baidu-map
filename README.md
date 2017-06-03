@@ -43,8 +43,15 @@ project(':react-native-jdg-baidu-map').projectDir = new File(settingsDir, '../no
         ...
     }
 
+### Android is Not supported yet (sadly)
+
 ### Usage 使用方法
 
-    import { MapView, MapTypes, MapModule, Geolocation } from 'react-native-baidu-map
+import {
+  JDGMapView,
+  JDGMapTypes,
+  JDGMapModule,
+  JDGGeolocation,
+} from 'react-native-jdg-baidu-map';
 
-### Android is Not supported yet (sadly)
+
