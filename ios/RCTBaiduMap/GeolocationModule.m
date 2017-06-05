@@ -16,6 +16,7 @@
 @synthesize bridge = _bridge;
 
 static BMKGeoCodeSearch *geoCodeSearch;
+static BMKPoiSearch *poiSearch;
 static BMKLocationService *locationService;
 
 RCT_EXPORT_MODULE(BaiduGeolocationModule);
@@ -88,11 +89,54 @@ RCT_EXPORT_METHOD(reverseGeoCodeGPS:(double)lat lng:(double)lng) {
     //[reverseGeoCodeSearchOption release];
 }
 
--(BMKGeoCodeSearch *)getGeocodesearch{
+RCT_EXPORT_METHOD(searchNearbyPoi:(double)lat lng:(double)lng keyword:(NSString*)key) {
+    [self getPoiSearch].delegate = self;
+    BMKNearbySearchOption * option = [[BMKNearbySearchOption alloc] init];
+    option.location = CLLocationCoordinate2DMake(lat, lng);
+    option.radius = 100000;
+    option.keyword = key;
+    BOOL flag = [[self getPoiSearch] poiSearchNearBy:option];
+    if (flag) {
+        NSLog(@"POI检索发送成功");
+    }
+}
+
+- (BMKPoiSearch *)getPoiSearch{
+    if(poiSearch == nil) {
+        poiSearch = [[BMKPoiSearch alloc] init];
+    }
+    return poiSearch;
+}
+
+- (BMKGeoCodeSearch *)getGeocodesearch{
     if(geoCodeSearch == nil) {
         geoCodeSearch = [[BMKGeoCodeSearch alloc]init];
     }
     return geoCodeSearch;
+}
+
+- (void)onGetPoiResult:(BMKPoiSearch *)searcher result:(BMKPoiResult *)poiResult errorCode:(BMKSearchErrorCode)error {
+    NSMutableDictionary *body = [self getEmptyBody];
+    if (error == BMK_SEARCH_NO_ERROR) {
+        NSMutableArray * array = [[NSMutableArray alloc] init];
+        for (BMKPoiInfo * pInfo in poiResult.poiInfoList) {
+            if (pInfo.epoitype != 0) {continue;}
+            NSMutableDictionary* dic = [self getEmptyBody];
+            dic[@"name"] = pInfo.name;
+            dic[@"address"] = pInfo.address;
+            dic[@"city"] = pInfo.city;
+            dic[@"phone"] = pInfo.phone;
+            dic[@"latitude"] = @(pInfo.pt.latitude);
+            dic[@"longitude"] = @(pInfo.pt.longitude);
+            [array addObject:dic];
+        }
+        body[@"results"] = array;
+    }
+    else {
+        body[@"errcode"] = [NSString stringWithFormat:@"%d", error];
+        body[@"errmsg"] = [self getSearchErrorInfo:error];
+    }
+    [self sendEvent:@"onGetPoiResult" body:body];
 }
 
 - (void)onGetGeoCodeResult:(BMKGeoCodeSearch *)searcher result:(BMKGeoCodeResult *)result errorCode:(BMKSearchErrorCode)error{
@@ -109,8 +153,8 @@ RCT_EXPORT_METHOD(reverseGeoCodeGPS:(double)lat lng:(double)lng) {
         body[@"errmsg"] = [self getSearchErrorInfo:error];
     }
     [self sendEvent:@"onGetGeoCodeResult" body:body];
-    
 }
+
 -(void) onGetReverseGeoCodeResult:(BMKGeoCodeSearch *)searcher result:(BMKReverseGeoCodeResult *)result
                         errorCode:(BMKSearchErrorCode)error {
     
@@ -148,6 +192,7 @@ RCT_EXPORT_METHOD(reverseGeoCodeGPS:(double)lat lng:(double)lng) {
     
     geoCodeSearch.delegate = nil;
 }
+
 -(NSString *)getSearchErrorInfo:(BMKSearchErrorCode)error {
     NSString *errormsg = @"未知";
     switch (error) {
@@ -201,6 +246,5 @@ RCT_EXPORT_METHOD(reverseGeoCodeGPS:(double)lat lng:(double)lng) {
     
     return baiduCoor;
 }
-
 
 @end
