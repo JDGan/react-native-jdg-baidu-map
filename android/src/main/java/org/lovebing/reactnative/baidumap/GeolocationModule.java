@@ -1,6 +1,5 @@
 package org.lovebing.reactnative.baidumap;
 
-
 import android.util.Log;
 
 import com.baidu.location.BDLocation;
@@ -157,13 +156,4 @@ public class GeolocationModule extends BaseModule
         }
         sendEvent("onGetReverseGeoCodeResult", params);
     }
-
-    @Override
-    public void onConnectHotSpotMessage(String string, int i) {
-        WritableMap params = Arguments.createMap();
-        params.putString("string", string);
-        params.putInt("i", i);
-        sendEvent("onGetReverseGeoCodeResult", params);
-    }
-
 }

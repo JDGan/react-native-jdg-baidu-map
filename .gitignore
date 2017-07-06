@@ -23,3 +23,8 @@ DerivedData
 Pods/
 *.iml
 gen/
+libbaiduNaviSDK.a
+gradle/
+gradlew
+gradlew.bat
+local.properties
