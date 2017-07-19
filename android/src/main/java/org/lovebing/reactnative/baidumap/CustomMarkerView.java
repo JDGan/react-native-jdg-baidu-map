@@ -3,9 +3,12 @@ package org.lovebing.reactnative.baidumap;
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.facebook.react.bridge.ReadableMap;
 import com.squareup.picasso.Picasso;
@@ -81,7 +84,22 @@ public class CustomMarkerView extends LinearLayout {
     private void setFrontImageView(String frontImageUri, int width, int height, int scale) {
         titleView.setVisibility(GONE);
         frontImageView.setVisibility(VISIBLE);
+        //Toast.makeText(mContext, "frontImageUri = " + frontImageUri, Toast.LENGTH_LONG).show();
         Picasso.with(mContext).load(frontImageUri).resize(width * scale, height * scale).centerCrop().into(frontImageView);
+        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT);
+        params.width = width * scale;
+        params.height = height * scale;
+        frontImageView.setLayoutParams(params);
+        if (frontImageUri.contains("resources_images_50")) {
+            frontImageView.setImageResource(R.mipmap.jyyx_50);
+        } else if (frontImageUri.contains("resources_images_51")) {
+            frontImageView.setImageResource(R.mipmap.jyyx_51);
+        } else if (frontImageUri.contains("resources_images_52")) {
+            frontImageView.setImageResource(R.mipmap.jyyx_52);
+        } else if (frontImageUri.contains("resources_images_53")) {
+            frontImageView.setImageResource(R.mipmap.jyyx_53);
+        }
     }
 
     public void setBackgroundView(int resId) {
@@ -90,7 +108,25 @@ public class CustomMarkerView extends LinearLayout {
 
     private void setBackgroundView(String uriStr, int width, int height, int scale) {
         Log.d(TAG, "uriStr = " + uriStr);
+       // Toast.makeText(mContext, "uriStr = " + uriStr, Toast.LENGTH_LONG).show();
         Picasso.with(mContext).load(uriStr).resize(width * scale, height * scale).centerCrop().into(backgroundImageView);
+//        Picasso.with(mContext).load(new File(uriStr.replace("_", "/") + "@3x")).resize(width * scale, height * scale).centerCrop().into(backgroundImageView);
+        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT);
+        params.width = width * scale;
+        params.height = height * scale;
+        backgroundImageView.setLayoutParams(params);
+        if (uriStr.contains("resources_images_35")) {
+            backgroundImageView.setImageResource(R.mipmap.jyyx_35);
+        } else if (uriStr.contains("resources_images_36")) {
+            backgroundImageView.setImageResource(R.mipmap.jyyx_36);
+        } else if (uriStr.contains("resources_images_37")) {
+            backgroundImageView.setImageResource(R.mipmap.jyyx_37);
+        } else if (uriStr.contains("resources_images_38")) {
+            backgroundImageView.setImageResource(R.mipmap.jyyx_38);
+        } else if (uriStr.contains("resources_images_46")) {
+            backgroundImageView.setImageResource(R.mipmap.jyyx_46);
+        }
     }
 }
 
