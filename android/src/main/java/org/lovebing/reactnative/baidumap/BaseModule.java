@@ -1,6 +1,5 @@
 package org.lovebing.reactnative.baidumap;
 
-
 import android.support.annotation.Nullable;
 
 import com.facebook.react.bridge.ReactApplicationContext;

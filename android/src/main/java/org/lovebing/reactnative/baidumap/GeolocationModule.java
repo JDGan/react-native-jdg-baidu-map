@@ -1,6 +1,5 @@
 package org.lovebing.reactnative.baidumap;
 
-
 import android.util.Log;
 
 import com.baidu.location.BDLocation;
@@ -26,7 +25,7 @@ import com.facebook.react.bridge.WritableMap;
  */
 public class GeolocationModule extends BaseModule
         implements BDLocationListener, OnGetGeoCoderResultListener {
-
+    private static final String TAG = "GeolocationModule";
     private LocationClient locationClient;
     private static GeoCoder geoCoder;
 
@@ -44,7 +43,7 @@ public class GeolocationModule extends BaseModule
         LocationClientOption option = new LocationClientOption();
         option.setCoorType("bd09ll");
         option.setIsNeedAddress(true);
-        option.setIsNeedAltitude(true);
+//        option.setIsNeedAltitude(true);
         option.setIsNeedLocationDescribe(true);
         option.setOpenGps(true);
         locationClient = new LocationClient(context.getApplicationContext());
@@ -108,6 +107,8 @@ public class GeolocationModule extends BaseModule
     @Override
     public void onReceiveLocation(BDLocation bdLocation) {
         WritableMap params = Arguments.createMap();
+        Log.d(TAG, "latitude = " + bdLocation.getLatitude());
+        Log.d(TAG, "longitude = " + bdLocation.getLongitude());
         params.putDouble("latitude", bdLocation.getLatitude());
         params.putDouble("longitude", bdLocation.getLongitude());
         params.putDouble("direction", bdLocation.getDirection());
@@ -138,6 +139,8 @@ public class GeolocationModule extends BaseModule
             params.putDouble("latitude", result.getLocation().latitude);
             params.putDouble("longitude", result.getLocation().longitude);
         }
+        Log.e(TAG, "latitude = " + result.getLocation().latitude);
+        Log.e(TAG, "longitude = " + result.getLocation().longitude);
         sendEvent("onGetGeoCodeResult", params);
     }
 
@@ -146,24 +149,24 @@ public class GeolocationModule extends BaseModule
         WritableMap params = Arguments.createMap();
         if (result == null || result.error != SearchResult.ERRORNO.NO_ERROR) {
             params.putInt("errcode", -1);
+            if (result == null) {
+                params.putString("errmsg", "返回无结果");
+            } else {
+                params.putString("errmsg", result.error.name());
+            }
+
         } else {
             ReverseGeoCodeResult.AddressComponent addressComponent = result.getAddressDetail();
             params.putString("address", result.getAddress());
             params.putString("province", addressComponent.province);
             params.putString("city", addressComponent.city);
             params.putString("district", addressComponent.district);
-            params.putString("street", addressComponent.street);
+            params.putString("streetName", addressComponent.street);
             params.putString("streetNumber", addressComponent.streetNumber);
+            params.putDouble("latitude", result.getLocation().latitude);
+            params.putDouble("longitude", result.getLocation().longitude);
         }
+
         sendEvent("onGetReverseGeoCodeResult", params);
     }
-
-    @Override
-    public void onConnectHotSpotMessage(String string, int i) {
-        WritableMap params = Arguments.createMap();
-        params.putString("string", string);
-        params.putInt("i", i);
-        sendEvent("onGetReverseGeoCodeResult", params);
-    }
-
 }
