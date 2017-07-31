@@ -33,7 +33,7 @@ public class MarkerUtil {
         LatLng position = getLatLngFromOption(option);
         CustomMarkerView customMarkerView = new CustomMarkerView(context, option);
         BitmapDescriptor bitmapDescriptor = BitmapDescriptorFactory.fromBitmap(getBitmapFromView(customMarkerView));
-        MarkerOptions markerRed = new MarkerOptions()
+        MarkerOptions markerOption = new MarkerOptions()
                 .position(position).icon(bitmapDescriptor);
         Bundle bundle = new Bundle();
         if (option.hasKey("id")) {
@@ -51,7 +51,7 @@ public class MarkerUtil {
         if (option.hasKey("frontTitle")) {
             bundle.putString("frontTitle", option.getString("frontTitle"));
         }
-        Marker marker = (Marker) mapView.getMap().addOverlay(markerRed);
+        Marker marker = (Marker) mapView.getMap().addOverlay(markerOption);
         marker.setExtraInfo(bundle);
         return marker;
     }

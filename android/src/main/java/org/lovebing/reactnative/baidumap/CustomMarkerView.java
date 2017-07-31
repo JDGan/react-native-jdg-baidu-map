@@ -88,10 +88,10 @@ public class CustomMarkerView extends LinearLayout {
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT);
         params.width = width * scale;
-        params.height = height * scale;
-        params.setMargins(0, 0, 0, 9 * scale);
+        params.height = (height + 9) * scale;
         params.addRule(RelativeLayout.CENTER_HORIZONTAL);
         frontImageView.setLayoutParams(params);
+        frontImageView.setPadding(0, scale, 5, 0);
         if (frontImageUri.contains("resources_images_50")) {
             frontImageView.setImageResource(R.mipmap.jyyx_50);
         } else if (frontImageUri.contains("resources_images_51")) {
