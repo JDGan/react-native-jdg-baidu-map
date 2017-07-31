@@ -14,6 +14,21 @@ import React, {
 const _module = NativeModules.BaiduGeolocationModule;
 
 export default {
+  searchNearbyPoi(lat, lng, keyword) {
+    return new Promise((resolve, reject) => {
+      try {
+        _module.searchNearbyPoi(lat, lng, keyword);
+      }
+      catch (e) {
+        reject(e);
+        return;
+      }
+      DeviceEventEmitter.once('onGetPoiResult', resp => {
+        resolve(resp);
+      });
+    })
+  },
+
   geocode(city, addr) {
     return new Promise((resolve, reject) => {
       try {
@@ -28,6 +43,7 @@ export default {
       });
     });
   },
+
   reverseGeoCode(lat, lng) {
     return new Promise((resolve, reject) => {
       try {
@@ -42,6 +58,7 @@ export default {
       });
     });
   },
+
   reverseGeoCodeGPS(lat, lng) {
     return new Promise((resolve, reject) => {
       try {
@@ -58,6 +75,7 @@ export default {
       });
     });
   },
+
   getCurrentPosition() {
     if (Platform.OS == 'ios') {
       return new Promise((resolve, reject) => {

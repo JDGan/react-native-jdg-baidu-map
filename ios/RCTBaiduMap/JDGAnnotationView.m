@@ -23,17 +23,30 @@
         
         _frontImageView = [[UIImageView alloc] init];
         [self addSubview:_frontImageView];
+        NSLayoutConstraint *centerX = [NSLayoutConstraint constraintWithItem:_frontImageView attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterX multiplier:1 constant:-1];
+        NSLayoutConstraint *centerY = [NSLayoutConstraint constraintWithItem:_frontImageView attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterY multiplier:1 constant:-5];
+        _frontImageView.translatesAutoresizingMaskIntoConstraints = NO;
+        [self addConstraints:@[centerX, centerY]];
         
         _titleLabel = [[UILabel alloc] init];
         _titleLabel.textColor = [UIColor whiteColor];
         _titleLabel.font = [UIFont systemFontOfSize:14];
         [self addSubview:_titleLabel];
         
+        centerX = [NSLayoutConstraint constraintWithItem:_titleLabel attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterX multiplier:1 constant:-2];
+        centerY = [NSLayoutConstraint constraintWithItem:_titleLabel attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterY multiplier:1 constant:-5];
+        _titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
+        [self addConstraints:@[centerX, centerY]];
+        
         _subtitleLabel = [[UILabel alloc] init];
         _subtitleLabel.textColor = [UIColor whiteColor];
         _subtitleLabel.font = [UIFont systemFontOfSize:10];
         [self addSubview:_subtitleLabel];
         
+        centerX = [NSLayoutConstraint constraintWithItem:_subtitleLabel attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:_titleLabel attribute:NSLayoutAttributeRight multiplier:1 constant:0];
+        centerY = [NSLayoutConstraint constraintWithItem:_subtitleLabel attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:_titleLabel attribute:NSLayoutAttributeBottom multiplier:1 constant:0];
+        _subtitleLabel.translatesAutoresizingMaskIntoConstraints = NO;
+         [self addConstraints:@[centerX, centerY]];
         
         if ([annotation isKindOfClass:[JDGAnnotation class]]) {
             [self customizedWithAnnotation:annotation];
@@ -67,15 +80,16 @@
 
 - (void)resetSubviewsLayout {
     self.frame = _imageView.bounds;
-    CGRect frame = _titleLabel.frame;
-    frame.origin = CGPointMake(4, 5);
-    _titleLabel.frame = frame;
-    frame.origin = CGPointMake(17, 8);
-    _subtitleLabel.frame = frame;
 }
 
 - (void)setFrontTitle:(NSString *)title {
-    _titleLabel.text = title;
+    if (title.length > 0 && ![title isEqualToString:@" "]) {
+        _titleLabel.text = title;
+        _titleLabel.hidden = NO;
+    } else {
+        _titleLabel.text = @"测";
+        _titleLabel.hidden = YES;
+    }
     [_titleLabel sizeToFit];
 }
 

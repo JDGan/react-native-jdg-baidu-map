@@ -25,6 +25,7 @@ RCT_EXPORT_MODULE(BaiduNavigationModule)
 
 RCT_EXPORT_METHOD(startNavigationFromMyLocationTo:(double)destPosLat long:(double)destPosLong)
 {
+    
     CLLocation *myLocation = [BNCoreServices_Location getLastLocation];
     [self startNavigationFrom:myLocation.coordinate.latitude lng:myLocation.coordinate.longitude to:destPosLat lng:destPosLong];
 }
@@ -37,24 +38,15 @@ RCT_EXPORT_METHOD(startNavigationFrom:(double)startPosLat lng:(double)startPosLo
     startNode.pos = [[BNPosition alloc] init];
     startNode.pos.x = startPosLong;
     startNode.pos.y = startPosLat;
-    startNode.pos.eType = BNCoordinate_OriginalGPS;
+    startNode.pos.eType = BNCoordinate_BaiduMapSDK;
     [nodesArray addObject:startNode];
-    
-    //也可以在此加入1到3个的途经点
-    
-//    BNRoutePlanNode *midNode = [[BNRoutePlanNode alloc] init];
-//    midNode.pos = [[BNPosition alloc] init];
-//    midNode.pos.x = destPos.longitude;
-//    midNode.pos.y = destPos.latitude;
-    //midNode.pos.eType = BNCoordinate_BaiduMapSDK;
-    //    [nodesArray addObject:midNode];
     
     //终点
     BNRoutePlanNode *endNode = [[BNRoutePlanNode alloc] init];
     endNode.pos = [[BNPosition alloc] init];
     endNode.pos.x = destPosLong;
     endNode.pos.y = destPosLat;
-    endNode.pos.eType = BNCoordinate_OriginalGPS;
+    endNode.pos.eType = BNCoordinate_BaiduMapSDK;
     [nodesArray addObject:endNode];
     
     //关闭openURL,不想跳转百度地图可以设为YES
