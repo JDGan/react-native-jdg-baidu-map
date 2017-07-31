@@ -8,7 +8,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.facebook.react.bridge.ReadableMap;
 import com.squareup.picasso.Picasso;
@@ -89,8 +88,10 @@ public class CustomMarkerView extends LinearLayout {
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT);
         params.width = width * scale;
-        params.height = height * scale;
+        params.height = (height + 9) * scale;
+        params.addRule(RelativeLayout.CENTER_HORIZONTAL);
         frontImageView.setLayoutParams(params);
+        frontImageView.setPadding(0, scale, 5, 0);
         if (frontImageUri.contains("resources_images_50")) {
             frontImageView.setImageResource(R.mipmap.jyyx_50);
         } else if (frontImageUri.contains("resources_images_51")) {
@@ -108,7 +109,7 @@ public class CustomMarkerView extends LinearLayout {
 
     private void setBackgroundView(String uriStr, int width, int height, int scale) {
         Log.d(TAG, "uriStr = " + uriStr);
-       // Toast.makeText(mContext, "uriStr = " + uriStr, Toast.LENGTH_LONG).show();
+        // Toast.makeText(mContext, "uriStr = " + uriStr, Toast.LENGTH_LONG).show();
         Picasso.with(mContext).load(uriStr).resize(width * scale, height * scale).centerCrop().into(backgroundImageView);
 //        Picasso.with(mContext).load(new File(uriStr.replace("_", "/") + "@3x")).resize(width * scale, height * scale).centerCrop().into(backgroundImageView);
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,

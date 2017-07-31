@@ -1,4 +1,4 @@
-package org.lovebing.reactnative.baidumap;
+package org.lovebing.reactnative.baidumap.utils;
 
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -13,6 +13,8 @@ import com.baidu.mapapi.map.MarkerOptions;
 import com.baidu.mapapi.model.LatLng;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.uimanager.ThemedReactContext;
+
+import org.lovebing.reactnative.baidumap.CustomMarkerView;
 
 /**
  * Created by lovebing on Sept 28, 2016.
@@ -31,7 +33,7 @@ public class MarkerUtil {
         LatLng position = getLatLngFromOption(option);
         CustomMarkerView customMarkerView = new CustomMarkerView(context, option);
         BitmapDescriptor bitmapDescriptor = BitmapDescriptorFactory.fromBitmap(getBitmapFromView(customMarkerView));
-        MarkerOptions markerRed = new MarkerOptions()
+        MarkerOptions markerOption = new MarkerOptions()
                 .position(position).icon(bitmapDescriptor);
         Bundle bundle = new Bundle();
         if (option.hasKey("id")) {
@@ -49,7 +51,7 @@ public class MarkerUtil {
         if (option.hasKey("frontTitle")) {
             bundle.putString("frontTitle", option.getString("frontTitle"));
         }
-        Marker marker = (Marker) mapView.getMap().addOverlay(markerRed);
+        Marker marker = (Marker) mapView.getMap().addOverlay(markerOption);
         marker.setExtraInfo(bundle);
         return marker;
     }
